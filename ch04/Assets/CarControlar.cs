@@ -12,11 +12,12 @@ public class CarControlar : MonoBehaviour
 
     Vector2 startPos;
     Vector2 endPos;
-
+    AudioSource audio;
 
     void Start()
     {
         Application.targetFrameRate = 60;
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -33,6 +34,8 @@ public class CarControlar : MonoBehaviour
             float swipeLength = endPos.x - startPos.x;
 
             this.speed = swipeLength / speedRatio;
+            
+            audio.Play();
         }
         transform.Translate(this.speed, 0, 0);
 

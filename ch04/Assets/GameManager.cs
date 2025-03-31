@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         float length = flag.transform.position.x - this.car.transform.position.x;
-        distance.GetComponent<TextMeshProUGUI>().text = "Distance: " + length.ToString("F2") + "m";
+        distance.GetComponent<TextMeshProUGUI>().text = "°Å¸®: " + length.ToString("F2") + "m";
+
+    }
+    public viod QuitGame()
+    {
+        Application.Quit();
     }
 }
