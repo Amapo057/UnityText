@@ -12,17 +12,21 @@ public class CarControlar : MonoBehaviour
 
     Vector2 startPos;
     Vector2 endPos;
-    AudioSource audio;
+    AudioSource carAudio;
+
+    bool gameEnded = false;
+    bool carStarted = false;
 
     void Start()
     {
         Application.targetFrameRate = 60;
-        audio = GetComponent<AudioSource>();
+        carAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (gameEnded) return;
         if (Input.GetMouseButtonDown(0))
         {
             startPos = Input.mousePosition;
@@ -35,16 +39,18 @@ public class CarControlar : MonoBehaviour
 
             this.speed = swipeLength / speedRatio;
             
-            audio.Play();
+            carAudio.Play();
+            carStarted = true;
         }
         transform.Translate(this.speed, 0, 0);
 
 
         this.speed *= 0.98f;
 
-        if (this.speed < 0.01)
+        if (carStarted && this.speed < 0.01)
         {
-            this.speed = 0;
+            this.speed = 0f;
+            gameEnded = true;
         }
     }
 
