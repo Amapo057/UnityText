@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 173.4, y: 121.1}
-  m_SizeDelta: {x: 35, y: 20}
+  m_AnchoredPosition: {x: 163.8, y: 206.4784}
+  m_SizeDelta: {x: 126.5184, y: 57.0432}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &334470268
 MonoBehaviour:
@@ -205,13 +205,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 8d61a51ffde294f4a9850b3a61ef5f7d, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1460415944}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: ReloadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -339,8 +339,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -504,6 +504,7 @@ GameObject:
   - component: {fileID: 994487233}
   - component: {fileID: 994487232}
   - component: {fileID: 994487231}
+  - component: {fileID: 994487234}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -585,6 +586,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &994487234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994487230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303a956d8bf3df245ba612debbabc1a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  car: {fileID: 0}
+  flag: {fileID: 0}
+  distance: {fileID: 0}
 --- !u!1 &1211741884
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1211741886}
   - component: {fileID: 1211741885}
-  - component: {fileID: 1211741887}
+  - component: {fileID: 1211741889}
   - component: {fileID: 1211741888}
   m_Layer: 0
   m_Name: car
@@ -671,22 +687,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1211741887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1211741884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c255b599537cad42b422d96aa3de8ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  speedRatio: 1000
-  startSpeed: 0.2
-  stopSpeed: 0.03
 --- !u!82 &1211741888
 AudioSource:
   m_ObjectHideFlags: 0
@@ -699,7 +699,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 047ca306bcfbaa3458b29e6b518aa4ed, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.481
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -783,6 +783,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1211741889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211741884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 101e9c3c101b96f4b8bd6c1e39b7f8d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  speedRatio: 500
+  startSpeed: 0.2
+  stopSpeed: 0.03
 --- !u!1 &1441029774
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,7 +892,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1460415943}
-  - component: {fileID: 1460415942}
+  - component: {fileID: 1460415944}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -884,21 +900,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1460415942
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1460415941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d61a51ffde294f4a9850b3a61ef5f7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  car: {fileID: 1211741884}
-  flag: {fileID: 1829648921}
-  distance: {fileID: 2040277536}
 --- !u!4 &1460415943
 Transform:
   m_ObjectHideFlags: 0
@@ -908,12 +909,27 @@ Transform:
   m_GameObject: {fileID: 1460415941}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5777128, y: 0.16854724, z: -10.015998}
+  m_LocalPosition: {x: -3.76, y: 0.16854724, z: -10.015998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1460415944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460415941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303a956d8bf3df245ba612debbabc1a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  car: {fileID: 1211741884}
+  flag: {fileID: 1829648921}
+  distance: {fileID: 2040277536}
 --- !u!1 &1547560442
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,8 +966,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 220.86331, y: 121.1}
-  m_SizeDelta: {x: 35, y: 20}
+  m_AnchoredPosition: {x: 317.1461, y: 206.48}
+  m_SizeDelta: {x: 120.7077, y: 57.043}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1547560444
 MonoBehaviour:
@@ -997,9 +1013,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 8d61a51ffde294f4a9850b3a61ef5f7d, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 1460415944}
+        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1215,8 +1231,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1409,6 +1425,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2121075591}
   - component: {fileID: 2121075590}
+  - component: {fileID: 2121075593}
+  - component: {fileID: 2121075592}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -1483,6 +1501,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2121075592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121075589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303a956d8bf3df245ba612debbabc1a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  car: {fileID: 0}
+  flag: {fileID: 0}
+  distance: {fileID: 0}
+--- !u!114 &2121075593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121075589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303a956d8bf3df245ba612debbabc1a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  car: {fileID: 0}
+  flag: {fileID: 0}
+  distance: {fileID: 0}
 --- !u!1 &2123184909
 GameObject:
   m_ObjectHideFlags: 0
