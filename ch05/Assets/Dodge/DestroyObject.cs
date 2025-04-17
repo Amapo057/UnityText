@@ -6,7 +6,11 @@ public class DestroyObject : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
+        DodgePlayer player = collision.gameObject.GetComponent<DodgePlayer>();
+        if (player != null)
+        {
+            Destroy(gameObject);
+        }
     }
     private void Update()
     {
