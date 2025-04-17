@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Arrow2Comtroller : MonoBehaviour
@@ -8,5 +9,11 @@ public class Arrow2Comtroller : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
+    private void Update()
+    {
+        if (transform.position.y < -7)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

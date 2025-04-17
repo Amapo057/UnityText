@@ -33,5 +33,6 @@ public class DodgePlayer : MonoBehaviour
             moveDirection -= 1;
         }
         transform.Translate(moveStep * moveDirection, 0, 0);
+
     }
 }

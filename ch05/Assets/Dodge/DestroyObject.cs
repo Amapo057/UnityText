@@ -8,4 +8,11 @@ public class DestroyObject : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    private void Update()
+    {
+        if (transform.position.y < -7)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
