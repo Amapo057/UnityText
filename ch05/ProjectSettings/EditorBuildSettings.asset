@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/1. Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/1. Scenes/GameScene.unity
     guid: 134f10b9b5dccc740ae71ad318f90172
+  - enabled: 1
+    path: Assets/1. Scenes/DodgeArrow.unity
+    guid: 57cd9f7065abb9d4fab3ebec49a51a4d
   m_configObjects: {}
