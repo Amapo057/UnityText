@@ -15,7 +15,7 @@ public class JumpCloudManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        while (cloudY <= 22f)
+        while (cloudY <= 21f)
         {
             float nowCloudX = Random.Range(-4.5f, 4.5f) + beforeCloudX;
 
@@ -38,12 +38,6 @@ public class JumpCloudManager : MonoBehaviour
             }
             cloudY += Random.Range(2f, 3f);
         }
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 }

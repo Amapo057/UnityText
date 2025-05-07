@@ -9,7 +9,7 @@ public class JumpPlayer : MonoBehaviour
     Animator animator;
 
     float jumpForce = 400f;
-    float walkSpeed = 0.08f;
+    float walkSpeed = 0.04f;
 
     bool jump = false;
 
@@ -24,6 +24,7 @@ public class JumpPlayer : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         jump = true;
+        animator.SetBool("playerJump", false);
         if (other.gameObject.tag == "Flag")
         {
             string activeScene = SceneManager.GetActiveScene().name;
@@ -45,6 +46,8 @@ public class JumpPlayer : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         jump = false;
+        animator.SetBool("playerJump", true);
+        animator.SetBool("playerWalk", false);
     }
 
     // Update is called once per frame
@@ -59,6 +62,10 @@ public class JumpPlayer : MonoBehaviour
                 //rigid2D.AddForce(new Vector2(0, 1) * jumpForce);
             }
         }
+        if (jump == true)
+        {
+            animator.SetBool("playerWalk", false);
+        }
 
         int key = 0;
         if (Input.GetKey(KeyCode.RightArrow)) { key = 1; }
@@ -67,6 +74,10 @@ public class JumpPlayer : MonoBehaviour
         if (key != 0)
         {
             transform.Translate(Vector3.right * key * walkSpeed);
+            if (jump == true)
+            {
+                animator.SetBool("playerWalk", true);
+            }
         }
 
         if (key != 0)
