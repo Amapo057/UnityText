@@ -9,7 +9,7 @@ public class JumpPlayer : MonoBehaviour
     Animator animator;
 
     float jumpForce = 400f;
-    float walkSpeed = 0.04f;
+    float walkSpeed = 0.08f;
 
     bool jump = false;
 
