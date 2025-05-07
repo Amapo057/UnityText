@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && rigid2D.velocity.y == 0)
         {
+            animator.SetTrigger("jumpTrigger");
             rigid2D.AddForce(transform.up * jumpForce);
             //rigid2D.AddForce(new Vector2(0, 1) * jumpForce);
         }
@@ -48,12 +49,34 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("GameScene");
         }
 
-        animator.speed = speedX / 2.0f;
+        if (rigid2D.velocity.y == 0)
+        {
+            animator.speed = speedX / 2.0f;
+        }
+        else
+        {
+            animator.speed = 1.0f;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Goal");
         SceneManager.LoadScene("ClearScene");
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Cloud")
+        {
+            transform.SetParent(collision.gameObject.transform);
+        }
+        else
+        {
+            return;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        transform.SetParent(null);
     }
 }
