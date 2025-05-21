@@ -5,6 +5,8 @@ using UnityEngine;
 public class BamsoniGenerator : MonoBehaviour
 {
     public GameObject bamsongiPrefab;
+    float power = 0f;
+    float startVal = 0f;
 
 
     // Start is called before the first frame update
@@ -25,8 +27,15 @@ public class BamsoniGenerator : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Vector3 worldDir = ray.direction;
 
-            //bamsongi.GetComponent<BamsongiController>().Shoot(new Vector3(0, 500, 2500));
+            //bamsongi.GetComponent<BamsongiController>().Shoot(new Vector3(0, 500, 2500s);
             bamsongi.GetComponent<BamsongiController>().Shoot(worldDir * 2000);
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            power = Input.mousePosition.y - startVal;
+
+            bamsongiPrefab.GetComponent<BamsongiController>().Shoot((Transform.forward + transform.up).normalized, power * 10 );
+
         }
     }
 }
